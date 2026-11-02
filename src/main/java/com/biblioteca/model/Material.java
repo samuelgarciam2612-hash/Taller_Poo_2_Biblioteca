@@ -1,14 +1,22 @@
 package com.biblioteca.model;
 
+import java.text.Collator;
 import java.util.ArrayDeque;
 import java.util.List;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.Queue;
 
 // Clase base de todo lo que hay en el estante. Abstracta: no existe "un material" genérico.
-// Nicolás agrega aquí "Comparable<Material>" y su compareTo en su PR.
-public abstract class Material implements Identificable {
+public abstract class Material implements Identificable, Comparable<Material> {
+
+    // Comparador en español: con compareToIgnoreCase la Á quedaría después de la z.
+    // static: uno solo para toda la clase. PRIMARY: ignora tildes y mayúsculas.
+    private static final Collator COMPARADOR_ES = Collator.getInstance(Locale.forLanguageTag("es"));
+    static {                                   // se ejecuta una sola vez, al cargar la clase
+        COMPARADOR_ES.setStrength(Collator.PRIMARY);
+    }
 
     private final String id;
     private final String titulo;
@@ -90,7 +98,7 @@ public abstract class Material implements Identificable {
         this.disponible = disponible;
     }
 
-    // equals / hashCode
+    // equals / hashCode por id
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -104,7 +112,17 @@ public abstract class Material implements Identificable {
         return Objects.hash(id);
     }
 
-    // toString
+    // Comparable: alfabético por título
+    // Si dos materiales tienen el mismo título, desempata por id.
+    @Override
+    public int compareTo(Material otro) {
+        int porTitulo = COMPARADOR_ES.compare(this.titulo, otro.titulo);
+        if (porTitulo != 0) {
+            return porTitulo;
+        }
+        return this.id.compareTo(otro.id);
+    }
+
     @Override
     public String toString() {
         return getTipo() + " [" + id + "] " + titulo + " (" + anioPublicacion + ") - "
