@@ -5,6 +5,6 @@ import com.biblioteca.model.Material;
 public class ComparatorPorAnio implements Comparator<Material> {
     @Override
     public int compare(Material m1, Material m2){
-        return (m1.getAnio() - m2.getAnio());
+        return (m1.getAnioPublicacion() - m2.getAnioPublicacion());
     }
 }

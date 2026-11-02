@@ -7,12 +7,12 @@ public class ComparatorLC {
 
     //lambda
     public static final Comparator<Material> anio = (Material a, Material b) -> {
-        return Integer.compare(a.getAnio(), b.getAnio());
+        return Integer.compare(a.getAnioPublicacion(), b.getAnioPublicacion());
     };
 
     //compuesto
     public static final Comparator<Material> anio_titulo =
-            Comparator.comparing(Material::getAnio)
+            Comparator.comparing(Material::getAnioPublicacion)
                     .thenComparing(Material::getTitulo)
                     .reversed();
 
