@@ -5,18 +5,8 @@ public class RecursoDigital extends Material {
     private static final int DIAS_PRESTAMO = 7;
     private static final double TARIFA_MULTA_DIARIA = 300;
 
-    private final String formato;                // PDF, video, audio...
-
-    public RecursoDigital(String id, String titulo, int anioPublicacion, String formato) {
-        super(id, titulo, anioPublicacion);
-        if (formato == null || formato.isBlank()) {
-            throw new IllegalArgumentException("El formato del recurso digital no puede estar vacío.");
-        }
-        this.formato = formato;
-    }
-
-    public String getFormato() {
-        return formato;
+    public RecursoDigital(String id, String titulo, String autor, int anioPublicacion) {
+        super(id, titulo, autor, anioPublicacion);
     }
 
     @Override

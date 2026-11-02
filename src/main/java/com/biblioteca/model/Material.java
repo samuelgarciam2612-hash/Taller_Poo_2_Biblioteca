@@ -11,7 +11,7 @@ import java.util.Queue;
 // Clase base de todo lo que hay en el estante. Abstracta: no existe "un material" genérico.
 public abstract class Material implements Identificable, Comparable<Material> {
 
-    // Comparador en español: con compareToIgnoreCase la Á quedaría después de la z.
+    // Comparador en español: con compareToIgnoreCase la "Á" quedaría después de la "z" ("Álgebra" tras "semana").
     // static: uno solo para toda la clase. PRIMARY: ignora tildes y mayúsculas.
     private static final Collator COMPARADOR_ES = Collator.getInstance(Locale.forLanguageTag("es"));
     static {                                   // se ejecuta una sola vez, al cargar la clase
@@ -20,6 +20,7 @@ public abstract class Material implements Identificable, Comparable<Material> {
 
     private final String id;
     private final String titulo;
+    private final String autor;
     private final int anioPublicacion;
     private boolean disponible;
     // Fila de reservas en orden de llegada (FIFO).
@@ -27,18 +28,23 @@ public abstract class Material implements Identificable, Comparable<Material> {
     private final Queue<Usuario> filaDeEspera = new ArrayDeque<>();
 
     // protected: solo las hijas (Libro, Revista...) pueden llamarlo
-    protected Material(String id, String titulo, int anioPublicacion) {
+    // Mismo orden de parámetros que usan las factories de Nicolás: (codigo, titulo, autor, anio)
+    protected Material(String id, String titulo, String autor, int anioPublicacion) {
         if (id == null || id.isBlank()) {
             throw new IllegalArgumentException("El id del material no puede estar vacío.");
         }
         if (titulo == null || titulo.isBlank()) {
             throw new IllegalArgumentException("El título del material no puede estar vacío.");
         }
+        if (autor == null || autor.isBlank()) {
+            throw new IllegalArgumentException("El autor del material no puede estar vacío.");
+        }
         if (anioPublicacion < 0) {
             throw new IllegalArgumentException("El año de publicación no puede ser negativo (se recibió " + anioPublicacion + ").");
         }
         this.id = id;
         this.titulo = titulo;
+        this.autor = autor;
         this.anioPublicacion = anioPublicacion;
         this.disponible = true;                 // todo material nuevo llega al estante
     }
@@ -86,6 +92,10 @@ public abstract class Material implements Identificable, Comparable<Material> {
         return titulo;
     }
 
+    public String getAutor() {
+        return autor;
+    }
+
     public int getAnioPublicacion() {
         return anioPublicacion;
     }
@@ -125,7 +135,7 @@ public abstract class Material implements Identificable, Comparable<Material> {
 
     @Override
     public String toString() {
-        return getTipo() + " [" + id + "] " + titulo + " (" + anioPublicacion + ") - "
+        return getTipo() + " [" + id + "] " + titulo + " - " + autor + " (" + anioPublicacion + ") - "
                 + (disponible ? "Disponible" : "Prestado");
     }
 }
