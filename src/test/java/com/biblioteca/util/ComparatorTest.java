@@ -1,9 +1,6 @@
 package com.biblioteca.util;
 
-import com.biblioteca.model.Audiovisual;
-import com.biblioteca.model.Libro;
-import com.biblioteca.model.Material;
-import com.biblioteca.model.Revista;
+import com.biblioteca.model.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -43,7 +40,7 @@ class ComparatorTest {
         List<Material> diversosMateriales = new ArrayList<>();
         diversosMateriales.add(new Libro("001", "Calculo En Varias Variables", "Gabriel Castaño", 2020));
         diversosMateriales.add(new Revista("002", "IEEE Software", "IEEE", 2021));
-        diversosMateriales.add(new Audiovisual("003", "Video Conferencia POO", "Universidad", 2022));
+        diversosMateriales.add(new RecursoDigital("003", "Video Conferencia POO", "Universidad", 2022));
 
         diversosMateriales.sort(new ComparatorPorMulta());
 
