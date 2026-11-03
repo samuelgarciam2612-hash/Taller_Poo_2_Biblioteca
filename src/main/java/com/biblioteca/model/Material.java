@@ -1,12 +1,12 @@
 package com.biblioteca.model;
 
+import com.biblioteca.exception.MaterialNoDisponibleException;
+import com.biblioteca.pattern.ColaEspera;
+
 import java.text.Collator;
-import java.util.ArrayDeque;
-import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.Optional;
-import java.util.Queue;
 
 // Clase base de todo lo que hay en el estante. Abstracta: no existe "un material" genérico.
 public abstract class Material implements Identificable, Comparable<Material> {
@@ -23,9 +23,8 @@ public abstract class Material implements Identificable, Comparable<Material> {
     private final String autor;
     private final int anioPublicacion;
     private boolean disponible;
-    // Fila de reservas en orden de llegada (FIFO).
-    // TEMPORAL: se reemplaza por ColaEspera<Usuario> cuando Samuel la termine.
-    private final Queue<Usuario> filaDeEspera = new ArrayDeque<>();
+    // Fila de reservas en orden de llegada (FIFO): usa la clase genérica de Samuel
+    private final ColaEspera<Usuario> filaDeEspera = new ColaEspera<>();
 
     // protected: solo las hijas (Libro, Revista...) pueden llamarlo
     // Mismo orden de parámetros que usan las factories de Nicolás: (codigo, titulo, autor, anio)
@@ -67,23 +66,38 @@ public abstract class Material implements Identificable, Comparable<Material> {
         if (usuario == null) {
             throw new IllegalArgumentException("El usuario que reserva no puede ser nulo.");
         }
-        if (!filaDeEspera.contains(usuario)) {  // la misma persona no aparta dos veces
-            filaDeEspera.add(usuario);
-        }
+        filaDeEspera.encolar(usuario);
     }
 
     // Saca al primero de la fila. Optional: si nadie espera, caja vacía (no null)
     public Optional<Usuario> sacarSiguienteEnEspera() {
-        return Optional.ofNullable(filaDeEspera.poll());
+        return Optional.ofNullable(filaDeEspera.atenderSiguiente());
     }
 
-    // Copia de solo lectura: nadie modifica la fila desde afuera
-    public List<Usuario> getFilaDeEspera() {
-        return List.copyOf(filaDeEspera);
+    // Mira quién sigue sin sacarlo de la fila
+    public Optional<Usuario> verSiguienteEnEspera() {
+        return Optional.ofNullable(filaDeEspera.verSiguiente());
+    }
+
+    public int getCantidadEnEspera() {
+        return filaDeEspera.obtenerTamano();
+    }
+
+    // ===== Préstamo del material =====
+    // Regla de negocio: no se presta lo que ya está prestado
+    public void prestar() throws MaterialNoDisponibleException {
+        if (!disponible) {
+            throw new MaterialNoDisponibleException("El material '" + titulo + "' ya está prestado.");
+        }
+        disponible = false;
+    }
+
+    public void devolver() {
+        disponible = true;
     }
 
     // ===== Getters y setters =====
-    // Sin @Override por ahora: Identificable todavía no declara getId()
+    @Override                                   // lo exige Identificable
     public String getId() {
         return id;
     }
