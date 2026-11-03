@@ -27,6 +27,18 @@ public class BibliotecaService {
     private final List<Material> materiales = new ArrayList<>();
     private final List<Prestamo> prestamos = new ArrayList<>();
 
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public List<Material> getMateriales() {
+        return materiales;
+    }
+
+    public List<Prestamo> getPrestamos() {
+        return prestamos;
+    }
+
     public Optional<Usuario> buscarUsuarioPorId(String id) {
         if (id == null || id.isBlank()) {
             LOGGER.log(Level.WARNING, "Búsqueda de usuario con ID nulo o vacío.");
