@@ -2,6 +2,7 @@ package com.biblioteca.exception;
 
 // Excepción base del dominio: todas las de la biblioteca heredan de esta.
 // Hereda de Exception (chequeada): Java obliga a capturarla o declararla con throws.
+
 public class BibliotecaException extends Exception {
 
     public BibliotecaException(String mensaje) {
