@@ -19,11 +19,11 @@ Atención automática:** Apenas el material se devuelve, el sistema saca al sigu
 
 Para organizarnos en Git y trabajar de forma colaborativa sin pisarnos el código, cada uno desarrolló su módulo en una rama específica a partir de `master` y fuimos integrando todo mediante commits y merges:
 
-* Camila Hernandez (rama: `feature/servicio-y-pruebas`):** Me encargué de estructurar el servicio principal (`BibliotecaService`) con toda la lógica de préstamos, devoluciones y reportes con Streams. También implementé la clase de utilidades `BibliotecaUtils`, configuré la trazabilidad del sistema con los logs de `java.util.logging` y construí la suite de pruebas unitarias en JUnit 5.
+* Camila Hernandez (rama: `feature/servicio-y-pruebas`):** Me encargué de estructurar el servicio principal (`BibliotecaService`) con toda la lógica de préstamos, devoluciones y reportes con Streams. También implementé la clase de utilidades `BibliotecaUtils`. 
 
 * David Ceballos (rama: `feature/modelo-y-excepciones`):** Estuvo a cargo del modelado del dominio base, implementando las entidades de `Usuario`, `Material`, `Prestamo` y `Multa`, junto con la jerarquía completa de excepciones personalizadas para controlar los errores de negocio.
 
-* Samuel Garcia (rama: `feature/genericos-utils`):** Desarrolló las estructuras de datos genéricas del sistema, creando la clase `Estanteria<T>` para el repositorio en memoria y `ColaEspera<T>` para la gestión FIFO de turnos, además de liderar el diseño de la arquitectura en los diagramas UML.
+* Samuel Garcia (rama: `feature/genericos-utils`):** Desarrolló las estructuras de datos genéricas del sistema, creando la clase `Estanteria<T>` para el repositorio en memoria y `ColaEspera<T>` para la gestión FIFO de turnos, además de liderar el diseño de la arquitectura en los diagramas UML y configuro la trazabilidad del sistema con los logs de `java.util.logging` y construyo la suite de pruebas unitarias en JUnit 5.
 
 * Nicolás Pérez (rama: `feature/patrones-y-comparadores`):** Implementó la creación de materiales mediante el patrón Factory Method, el sistema reactivo con Observer (`GestorUsuarios` y `UsuarioObservador`) y los comparadores de materiales (`ComparatorLC`, por año y multa) usando lambdas y comparadores compuestos.
   
