@@ -43,3 +43,15 @@ Interface Segregation Principle (Principio de Segregación de Interfaces):
 
 Dependency Inversion Principle (Principio de Inversión de Dependencias):  
   Los módulos de alto nivel no dependen de implementaciones concretas, sino de abstracciones e interfaces. El servicio `BibliotecaService` y los clientes operan contra contratos abstractos como `Repositorio<T>` en vez de acoplarse directamente a la implementación física, y las fábricas concretas dependen de la interfaz `MaterialFactory` para retornar el producto abstracto `Material`.
+
+
+
+ <img width="1710" height="1854" alt="1-dominio" src="https://github.com/user-attachments/assets/7c8d17f6-53ac-4b87-a29b-c2f3be571e20" />
+
+ <img width="1769" height="682" alt="2-factory" src="https://github.com/user-attachments/assets/800d0c92-c325-4714-a8a7-b89494514623" />
+
+ <img width="833" height="808" alt="3-observer" src="https://github.com/user-attachments/assets/4e69c04f-78f1-4008-bd1c-01795f1e0fbc" />
+ 
+ <img width="2384" height="556" alt="4-soporte" src="https://github.com/user-attachments/assets/ad708cb1-3d62-4376-b772-9923c094d26e" />
+
+
