@@ -19,13 +19,13 @@ Atención automática:** Apenas el material se devuelve, el sistema saca al sigu
 
 Para organizarnos en Git y trabajar de forma colaborativa sin pisarnos el código, cada uno desarrolló su módulo en una rama específica a partir de `master` y fuimos integrando todo mediante commits y merges:
 
-* **Samuel García (rama: `feature/servicio-y-pruebas`):** Me encargué de estructurar el servicio principal (`BibliotecaService`) con toda la lógica de préstamos, devoluciones y reportes con Streams. También implementé la clase de utilidades `BibliotecaUtils`, configuré la trazabilidad del sistema con los logs de `java.util.logging` y construí la suite de pruebas unitarias en JUnit 5.
+* Camila Hernandez (rama: `feature/servicio-y-pruebas`):** Me encargué de estructurar el servicio principal (`BibliotecaService`) con toda la lógica de préstamos, devoluciones y reportes con Streams. También implementé la clase de utilidades `BibliotecaUtils`, configuré la trazabilidad del sistema con los logs de `java.util.logging` y construí la suite de pruebas unitarias en JUnit 5.
 
-* **Camila Hernández (rama: `feature/modelo-y-excepciones`):** Estuvo a cargo del modelado del dominio base, implementando las entidades de `Usuario`, `Material`, `Prestamo` y `Multa`, junto con la jerarquía completa de excepciones personalizadas para controlar los errores de negocio.
+* David Ceballos (rama: `feature/modelo-y-excepciones`):** Estuvo a cargo del modelado del dominio base, implementando las entidades de `Usuario`, `Material`, `Prestamo` y `Multa`, junto con la jerarquía completa de excepciones personalizadas para controlar los errores de negocio.
 
-* **David Ceballos (rama: `feature/genericos-utils`):** Desarrolló las estructuras de datos genéricas del sistema, creando la clase `Estanteria<T>` para el repositorio en memoria y `ColaEspera<T>` para la gestión FIFO de turnos, además de liderar el diseño de la arquitectura en los diagramas UML.
+* Samuel Garcia (rama: `feature/genericos-utils`):** Desarrolló las estructuras de datos genéricas del sistema, creando la clase `Estanteria<T>` para el repositorio en memoria y `ColaEspera<T>` para la gestión FIFO de turnos, además de liderar el diseño de la arquitectura en los diagramas UML.
 
-* **Nicolás Pérez (rama: `feature/patrones-y-comparadores`):** Implementó la creación de materiales mediante el patrón Factory Method, el sistema reactivo con Observer (`GestorUsuarios` y `UsuarioObservador`) y los comparadores de materiales (`ComparatorLC`, por año y multa) usando lambdas y comparadores compuestos.
+* Nicolás Pérez (rama: `feature/patrones-y-comparadores`):** Implementó la creación de materiales mediante el patrón Factory Method, el sistema reactivo con Observer (`GestorUsuarios` y `UsuarioObservador`) y los comparadores de materiales (`ComparatorLC`, por año y multa) usando lambdas y comparadores compuestos.
   
 
 
@@ -50,8 +50,9 @@ Dependency Inversion Principle (Principio de Inversión de Dependencias):
 
  <img width="1769" height="682" alt="2-factory" src="https://github.com/user-attachments/assets/800d0c92-c325-4714-a8a7-b89494514623" />
 
- <img width="833" height="808" alt="3-observer" src="https://github.com/user-attachments/assets/4e69c04f-78f1-4008-bd1c-01795f1e0fbc" />
- 
- <img width="2384" height="556" alt="4-soporte" src="https://github.com/user-attachments/assets/ad708cb1-3d62-4376-b772-9923c094d26e" />
+<img width="2384" height="632" alt="4-soporte (1)" src="https://github.com/user-attachments/assets/d0d6cbe9-2b4d-40c3-be9e-c5781caf4663" />
+
+<img width="833" height="808" alt="3-observer (1)" src="https://github.com/user-attachments/assets/695d9c8b-40d5-4be9-8857-980b76f6f230" />
+
 
 
