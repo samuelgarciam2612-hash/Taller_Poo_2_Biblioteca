@@ -20,6 +20,18 @@ public class BibliotecaService {
     private List<Material> materiales = new ArrayList<>();
     private List<Prestamo> prestamos = new ArrayList<>();
 
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public List<Material> getMateriales() {
+        return materiales;
+    }
+
+    public List<Prestamo> getPrestamos() {
+        return prestamos;
+    }
+
     public Optional<Usuario> buscarUsuarioPorId(String id) {
         return usuarios.stream()
                 .filter(u -> u.getId().equals(id))
@@ -32,7 +44,7 @@ public class BibliotecaService {
                 .findFirst();
     }
 
-    public Prestamo prestarMaterial(String usuarioId, String materialId) {
+    public Prestamo prestarMaterial(String usuarioId, String materialId) throws ReglaPrestamoVioladaException, MaterialNoEncontradoException, UsuarioNoEncontradoException {
 
         Usuario usuario = buscarUsuarioPorId(usuarioId)
                 .orElseThrow(() -> new UsuarioNoEncontradoException("El usuario con ID " + usuarioId + " no existe."));
@@ -57,7 +69,7 @@ public class BibliotecaService {
         return nuevoPrestamo;
     }
 
-    public void devolverMaterial(String materialId) {
+    public void devolverMaterial(String materialId) throws PrestamoNoEncontradoException, MaterialNoEncontradoException {
 
         Material material = buscarMaterialPorId(materialId)
                 .orElseThrow(() -> new MaterialNoEncontradoException("El material con ID " + materialId + " no existe."));
@@ -91,14 +103,14 @@ public class BibliotecaService {
                 .toList();
     }
 
-    public void cobrarMulta(String usuarioId, double monto) {
+    public void cobrarMulta(String usuarioId, double monto) throws UsuarioNoEncontradoException {
         Usuario usuario = buscarUsuarioPorId(usuarioId)
                 .orElseThrow(() -> new UsuarioNoEncontradoException("Usuario no encontrado con ID: " + usuarioId));
 
         usuario.pagarMulta(monto);
     }
 
-    public void registrarReserva(String usuarioId, String materialId) {
+    public void registrarReserva(String usuarioId, String materialId) throws UsuarioNoEncontradoException, MaterialNoEncontradoException {
         Material material = buscarMaterialPorId(materialId)
                 .orElseThrow(() -> new MaterialNoEncontradoException("Material no encontrado con ID: " + materialId));
 
