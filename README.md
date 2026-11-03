@@ -1,8 +1,11 @@
 Bliblioteca Universitaria
 
 Samuel Garcia: samuelgarciam2612-hash
+
 Camila Hernandez: mcamilahc
+
 Nicolas Perez: Lester369
+
 David Ceballos: dceballos12
 
 El proyecto lo organizamos por capas para que el código quede ordenado, fácil de mantener y no mezclar responsabilidades:
