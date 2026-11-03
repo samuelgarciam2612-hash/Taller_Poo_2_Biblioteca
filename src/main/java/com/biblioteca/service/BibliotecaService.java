@@ -19,6 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
+
 public class BibliotecaService {
 
     private static final Logger LOGGER = Logger.getLogger(BibliotecaService.class.getName());
@@ -26,6 +27,18 @@ public class BibliotecaService {
     private final List<Usuario> usuarios = new ArrayList<>();
     private final List<Material> materiales = new ArrayList<>();
     private final List<Prestamo> prestamos = new ArrayList<>();
+
+    public List<Usuario> getUsuarios() {
+        return usuarios;
+    }
+
+    public List<Material> getMateriales() {
+        return materiales;
+    }
+
+    public List<Prestamo> getPrestamos() {
+        return prestamos;
+    }
 
     public Optional<Usuario> buscarUsuarioPorId(String id) {
         if (id == null || id.isBlank()) {
