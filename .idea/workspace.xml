@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="947d52f4-89dd-412a-9f8d-b53ad2b72697" name="Changes" comment="Borrador 1 de nicolas &#10;&#10;ya esta listo en teoria">
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/biblioteca/pattern/MaterialFactoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/biblioteca/pattern/ObserverTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/biblioteca/util/ComparatorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/biblioteca/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/biblioteca/util/BibliotecaUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/biblioteca/util/BibliotecaUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/biblioteca/util/ComparatorLC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/biblioteca/util/ComparatorLC.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +43,65 @@
     &quot;accountId&quot;: &quot;e2c5310e-a335-47f5-a2ab-2460d2d8a05e&quot;
   }
 }</component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0" />
+      <entry key="S60" value="1.0" />
+      <entry key="M2" value="1.0" />
+      <entry key="M5" value="1.0" />
+      <entry key="M10" value="1.0" />
+      <entry key="M15" value="1.0" />
+      <entry key="M30" value="1.0" />
+      <entry key="H1" value="1.0" />
+      <entry key="H2" value="1.0" />
+      <entry key="H4" value="1.0" />
+      <entry key="D1" value="1.0" />
+      <entry key="W1" value="1.0" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="0.0" />
+      <entry key="S5" value="0.0" />
+      <entry key="S10" value="0.0" />
+      <entry key="S30" value="0.0" />
+      <entry key="S60" value="0.0" />
+      <entry key="M2" value="0.0" />
+      <entry key="M5" value="0.0" />
+      <entry key="M10" value="0.0" />
+      <entry key="M15" value="0.0" />
+      <entry key="M30" value="0.0" />
+      <entry key="H1" value="0.0" />
+      <entry key="H2" value="0.0" />
+      <entry key="H4" value="0.0" />
+      <entry key="D1" value="0.0" />
+      <entry key="W1" value="0.0" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="0.3922920489483754" />
+      <entry key="MS500" value="0.8293195458144417" />
+      <entry key="S2" value="0.9542902250321851" />
+      <entry key="S5" value="0.9814590638534793" />
+      <entry key="S10" value="0.9906861581012825" />
+      <entry key="S30" value="0.9968856972203758" />
+      <entry key="S60" value="0.9984416343584516" />
+      <entry key="M2" value="0.99922051337953" />
+      <entry key="M5" value="0.9996881324095582" />
+      <entry key="M10" value="0.9998440540452087" />
+      <entry key="M15" value="0.9998960333278251" />
+      <entry key="M30" value="0.9999480153127087" />
+      <entry key="H1" value="0.9999740073185446" />
+      <entry key="H2" value="0.9999870035748187" />
+      <entry key="H4" value="0.9999935017662959" />
+      <entry key="D1" value="0.9999989169581168" />
+      <entry key="W1" value="0.9999998452796591" />
+    </decayedShown>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7,
   &quot;fromUser&quot;: false
@@ -56,6 +116,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "JUnit.MaterialFactoryTest.executor": "Run",
     "JUnit.MaterialFactoryTest.testearPermitirUsoPolimorfico.executor": "Run",
     "JUnit.ObserverTest.executor": "Run",
@@ -63,7 +124,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "Patrones__Comparator",
+    "git-widget-placeholder": "#16 on feature/genericos-utils",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -75,7 +136,20 @@
     "nodejs_package_manager_path": "npm"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.ObserverTest">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.biblioteca.Main" />
+      <module name="Taller_Poo_2_Biblioteca" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.biblioteca.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MaterialFactoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Taller_Poo_2_Biblioteca" />
       <extension name="coverage">
@@ -124,6 +198,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.ObserverTest" />
         <item itemvalue="JUnit.MaterialFactoryTest.testearPermitirUsoPolimorfico" />
         <item itemvalue="JUnit.MaterialFactoryTest" />

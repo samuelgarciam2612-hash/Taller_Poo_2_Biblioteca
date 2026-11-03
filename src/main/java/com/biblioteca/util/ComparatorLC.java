@@ -15,4 +15,11 @@ public class ComparatorLC {
             Comparator.comparing(Material::getAnioPublicacion)
                     .thenComparing(Material::getTitulo)
                     .reversed();
+
+    public static Comparator<Material> porAnioYTituloDescendente() {
+        return Comparator.comparing(Material::getAnioPublicacion)
+                .thenComparing(Material::getTitulo)
+                .reversed();
+    }
+    //Ordena por año de publicación y por título de forma descendente.
 }
