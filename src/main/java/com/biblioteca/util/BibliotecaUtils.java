@@ -1,5 +1,7 @@
 package com.biblioteca.util;
 
+import com.biblioteca.model.Material;
+
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -45,4 +47,51 @@ public class BibliotecaUtils {
         }
     }
     //algoritmo de ordenamiento burbuja
+
+    public static <T> List<T> filtrar(List<T> lista, java.util.function.Predicate<T> criterio) {
+        if (lista == null || criterio == null) {
+            return List.of();
+        }
+        return lista.stream()
+                .filter(criterio)
+                .toList();
+    }
+    // busqueda o filtrado con predicado
+
+    // Obtener el primer elemento o valor por defecto
+    public static <T> T obtenerPrimeroODefecto(List<T> lista, T valorPorDefecto) {
+        if (lista == null || lista.isEmpty()) {
+            return valorPorDefecto;
+        }
+        return lista.getFirst();
+    }
+
+    // Comodín no acotado <?>: solo lee o cuenta sin importar el tipo
+    public static int contarElementos(List<?> lista) {
+        if (lista == null) {
+            return 0;
+        }
+        return lista.size();
+    }
+
+    // Productor (? extends T): lee y procesa una colección de subtipos (ej. Libro, Revista)
+    public static double calcularMultaTotal(List<? extends Material> materiales, int diasRetraso) {
+        if (materiales == null || diasRetraso <= 0) {
+            return 0.0;
+        }
+        double total = 0.0;
+        for (Material m : materiales) {
+            total += m.calcularMulta(diasRetraso);
+        }
+        return total;
+    }
+
+    // Consumidor (? super T): agrega o deposita elementos en una colección de supertipos
+    public static <T> void transferirElementos(List<T> origen, List<? super T> destino) {
+        if (origen == null || destino == null) {
+            return;
+        }
+        destino.addAll(origen);
+    }
 }
+
