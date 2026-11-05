@@ -13,7 +13,7 @@ public class BibliotecaUtils {
 
         public static boolean esTextoValido(String texto, String nombreCampo) {
             if (texto == null || texto.isBlank()) {
-                LOGGER.log(Level.WARNING, "Validación fallida: El campo ''{0}'' es nulo o está en blanco.", nombreCampo);
+                LOGGER.log(Level.WARNING, "Validación fallida: El campo es nulo o está en blanco.", nombreCampo);
                 return false;
             }
             return true;

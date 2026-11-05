@@ -36,16 +36,16 @@ public class Main {
         service.getMateriales().add(libroPatrones);
         service.getMateriales().add(revistaTech);
 
-        LOGGER.log(Level.INFO, "Materiales cargados: {0}", service.getMateriales().size());
+        LOGGER.log(Level.INFO, "Materiales cargados: " + service.getMateriales().size());
 
 
         // 2. ordenamienot y genericos
 
         List<Material> listaParaOrdenar = new ArrayList<>(service.getMateriales());
 
-        // Ordenamiento genérico manual (Burbuja / Inserción implementado en BibliotecaUtils)
+        // Ordenamiento genérico manual (Burbuja)
         BibliotecaUtils.ordenar(listaParaOrdenar);
-        LOGGER.info("Materiales ordenados por orden natural (Comparable):");
+        LOGGER.info("Materiales ordenados por orden natural :");
         listaParaOrdenar.forEach(m -> LOGGER.log(Level.INFO, " - [{0}] {1} ({2})",
                 new Object[]{m.getId(), m.getTitulo(), m.getAnioPublicacion()}));
 
@@ -96,7 +96,22 @@ public class Main {
         LOGGER.log(Level.INFO, "Préstamos activos de David Ceballos: {0}", activosDavid);
 
         var masSolicitados = service.obtenerMaterialesMasSolicitados();
-        LOGGER.log(Level.INFO, "Materiales con mayor demanda en el sistema: {0}", masSolicitados.size());
+        LOGGER.log(Level.INFO, "Materiales con mayor demanda en el sistema: "+ masSolicitados.size());
+
+
+        LOGGER.info("Lista de usuarios registrados en el sistema:");
+        service.getUsuarios().forEach(u -> LOGGER.log(Level.INFO, "   *  "+ u));
+
+        // 2. Imprimir el libro
+        LOGGER.log(Level.INFO, "Libro creado mediante Factory Method: " + libroJava);
+
+        // 3. Imprimir la lista
+        LOGGER.info("Lista de materiales en inventario:");
+        service.getMateriales().forEach(m -> LOGGER.log(Level.INFO, "   * {0}", m));
+
+        // 4. Imprimir el resultado del ordenamiento por burbuja
+        LOGGER.info("Resultado del ordenamiento por Burbuja :");
+        listaParaOrdenar.forEach(m -> LOGGER.log(Level.INFO, "   " + m));
 
     }
 }
