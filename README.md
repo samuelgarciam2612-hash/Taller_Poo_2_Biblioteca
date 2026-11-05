@@ -50,13 +50,6 @@ Dependency Inversion Principle (Principio de Inversión de Dependencias):
 
 
 
- <img width="1710" height="1854" alt="1-dominio" src="https://github.com/user-attachments/assets/7c8d17f6-53ac-4b87-a29b-c2f3be571e20" />
-
- <img width="1769" height="682" alt="2-factory" src="https://github.com/user-attachments/assets/800d0c92-c325-4714-a8a7-b89494514623" />
-
-<img width="2384" height="632" alt="4-soporte (1)" src="https://github.com/user-attachments/assets/d0d6cbe9-2b4d-40c3-be9e-c5781caf4663" />
-
-<img width="833" height="808" alt="3-observer (1)" src="https://github.com/user-attachments/assets/695d9c8b-40d5-4be9-8857-980b76f6f230" />
-
+[diagrama-completo.pdf](https://github.com/user-attachments/files/34405455/diagrama-completo.pdf)
 
 
