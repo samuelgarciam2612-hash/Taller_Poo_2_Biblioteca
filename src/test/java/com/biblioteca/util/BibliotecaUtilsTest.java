@@ -44,9 +44,6 @@ public class BibliotecaUtilsTest {
     }
     // Aquí probamos la seguridad: si por accidente a la función de limpiar le llega un nulo, no se nos va a caer el programa con un error rojo, sino que nos devolverá un texto vacío ("") de forma segura.
 
-    // ==========================================
-    // PRUEBAS PARA LOS NUEVOS MÉTODOS GENÉRICOS
-    // ==========================================
 
     @Test
     void testFiltrarElementosCorrectamente() {
